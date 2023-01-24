@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0, user-scalable=yes">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<title>Arduino - Digital and Analog Infrared Sensor - Robo India || Tutorials || Learn Arduino || Robotics</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v11.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino - Digital and Analog Infrared Sensor - Robo India || Tutorials || Learn Arduino || Robotics">
+<meta property="og:description" content="This tutorial of Robo India explain the working concept of Infrared(IR) sensor as Digital and Analog sensor.  1. Introduction: This is a multipurpose infrared sensor…">
+<meta property="og:url" content="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/">
+<meta property="og:site_name" content="Robo India || Tutorials || Learn Arduino || Robotics">
+<meta property="article:section" content="Arduino">
+<meta property="article:published_time" content="2019-05-31T11:21:19+00:00">
+<meta property="article:modified_time" content="2020-08-25T13:17:52+00:00">
+<meta property="og:updated_time" content="2020-08-25T13:17:52+00:00">
+<meta property="og:image" content="https://roboindia.com/wp/wp-content/uploads/2019/05/1-38-1024x473.jpg">
+<meta property="og:image:secure_url" content="https://roboindia.com/wp/wp-content/uploads/2019/05/1-38-1024x473.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="This tutorial of Robo India explain the working concept of Infrared(IR) sensor as Digital and Analog sensor.  1. Introduction: This is a multipurpose infrared sensor…">
+<meta name="twitter:title" content="Arduino - Digital and Analog Infrared Sensor - Robo India || Tutorials || Learn Arduino || Robotics">
+<meta name="twitter:image" content="https://roboindia.com/wp/wp-content/uploads/2019/05/1-38-1024x473.jpg">
+<script src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f.txt"></script><script src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(1).txt" id="google_shimpl"></script><script type="text/javascript" async="" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/analytics.js.download"></script><script async="" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/analytics.js.download"></script><script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://roboindia.com/tutorials/#organization","name":"","url":"https://roboindia.com/tutorials/","sameAs":[]},{"@type":"WebSite","@id":"https://roboindia.com/tutorials/#website","url":"https://roboindia.com/tutorials/","name":"Robo India || Tutorials || Learn Arduino || Robotics","publisher":{"@id":"https://roboindia.com/tutorials/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://roboindia.com/tutorials/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#webpage","url":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/","inLanguage":"en-US","name":"Arduino - Digital and Analog Infrared Sensor - Robo India || Tutorials || Learn Arduino || Robotics","isPartOf":{"@id":"https://roboindia.com/tutorials/#website"},"image":{"@type":"ImageObject","@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#primaryimage","url":"https://roboindia.com/wp/wp-content/uploads/2019/05/1-38-1024x473.jpg"},"primaryImageOfPage":{"@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#primaryimage"},"datePublished":"2019-05-31T11:21:19+00:00","dateModified":"2020-08-25T13:17:52+00:00"},{"@type":"Article","@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#article","isPartOf":{"@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#webpage"},"author":{"@id":"https://roboindia.com/tutorials/author/robo-india-maker-01/#author"},"headline":"Arduino &#8211; Digital and Analog Infrared Sensor","datePublished":"2019-05-31T11:21:19+00:00","dateModified":"2020-08-25T13:17:52+00:00","commentCount":"1","mainEntityOfPage":{"@id":"https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#webpage"},"publisher":{"@id":"https://roboindia.com/tutorials/#organization"},"articleSection":"Arduino,Sensors"},{"@type":["Person"],"@id":"https://roboindia.com/tutorials/author/robo-india-maker-01/#author","name":"Robo India","image":{"@type":"ImageObject","@id":"https://roboindia.com/tutorials/#authorlogo","url":"https://secure.gravatar.com/avatar/142f0be720f068b96fd9f30d69d11870?s=96&d=mm&r=g","caption":"Robo India"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Robo India || Tutorials || Learn Arduino || Robotics » Feed" href="https://roboindia.com/tutorials/feed/">
+<link rel="alternate" type="application/rss+xml" title="Robo India || Tutorials || Learn Arduino || Robotics » Comments Feed" href="https://roboindia.com/tutorials/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Robo India || Tutorials || Learn Arduino || Robotics » Arduino – Digital and Analog Infrared Sensor Comments Feed" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/feed/">
+<!-- This site uses the Google Analytics by MonsterInsights plugin v7.10.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+<script type="text/javascript" data-cfasync="false">
+	var mi_version         = '7.10.0';
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-141674315-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+	
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-141674315-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/roboindia.com\/tutorials\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.16"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="customify-style-css" href="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/style.min(1).css" type="text/css" media="all">
+<style id="customify-style-inline-css" type="text/css">
+#page-cover {background-image: url("https://roboindia.com/tutorials/wp-content/themes/customify/assets/images/default-cover.jpg");}.sub-menu .li-duplicator {display:none !important;}.header-search_icon-item .header-search-modal  {border-style: solid;} .header-search_icon-item .search-field  {border-style: solid;} .dark-mode .header-search_box-item .search-form-fields, .header-search_box-item .search-form-fields  {border-style: solid;} .site-content .content-area  {background-color: #FFFFFF;} /* CSS for desktop */#page-cover .page-cover-inner {min-height: 300px;}.header--row.header-top .customify-grid, .header--row.header-top .style-full-height .primary-menu-ul > li > a {min-height: 40px;}.header--row.header-main .customify-grid, .header--row.header-main .style-full-height .primary-menu-ul > li > a {min-height: 90px;}.header--row.header-bottom .customify-grid, .header--row.header-bottom .style-full-height .primary-menu-ul > li > a {min-height: 55px;}.site-header .site-branding img { max-width: 126px; } .site-header .cb-row--mobile .site-branding img { width: 126px; }.header--row .builder-item--logo, .builder-item.builder-item--group .item--inner.builder-item--logo {margin-top: 8px;margin-right: 0px;margin-bottom: 0px;margin-left: 0px;}.header--row .builder-first--nav-icon {text-align: right;}.header-search_icon-item .search-submit {margin-left: -40px;}.header-search_box-item .search-submit{margin-left: -40px;} .header-search_box-item .woo_bootster_search .search-submit{margin-left: -40px;} .header-search_box-item .header-search-form button.search-submit{margin-left:-40px;}.header--row .builder-first--primary-menu {text-align: right;}/* CSS for tablet */@media screen and (max-width: 1024px) { #page-cover .page-cover-inner {min-height: 250px;}.header--row .builder-first--nav-icon {text-align: right;}.header-search_icon-item .search-submit {margin-left: -40px;}.header-search_box-item .search-submit{margin-left: -40px;} .header-search_box-item .woo_bootster_search .search-submit{margin-left: -40px;} .header-search_box-item .header-search-form button.search-submit{margin-left:-40px;} }/* CSS for mobile */@media screen and (max-width: 568px) { #page-cover .page-cover-inner {min-height: 200px;}.header--row.header-top .customify-grid, .header--row.header-top .style-full-height .primary-menu-ul > li > a {min-height: 33px;}.header--row .builder-first--nav-icon {text-align: right;}.header-search_icon-item .search-submit {margin-left: -40px;}.header-search_box-item .search-submit{margin-left: -40px;} .header-search_box-item .woo_bootster_search .search-submit{margin-left: -40px;} .header-search_box-item .header-search-form button.search-submit{margin-left:-40px;} }
+</style>
+<script type="text/javascript">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/roboindia.com\/tutorials","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/frontend.min.js.download"></script>
+<script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/js" async=""></script>
+<script type="text/javascript">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "UA-141674315-1", {"anonymize_ip":true});
+</script>
+<link rel="https://api.w.org/" href="https://roboindia.com/tutorials/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://roboindia.com/tutorials/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://roboindia.com/tutorials/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.2.16">
+<link rel="shortlink" href="https://roboindia.com/tutorials/?p=1405">
+<link rel="alternate" type="application/json+oembed" href="https://roboindia.com/tutorials/wp-json/oembed/1.0/embed?url=https%3A%2F%2Froboindia.com%2Ftutorials%2Fdigital-analog-ir-pair-arduino%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://roboindia.com/tutorials/wp-json/oembed/1.0/embed?url=https%3A%2F%2Froboindia.com%2Ftutorials%2Fdigital-analog-ir-pair-arduino%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.27.0"><style>/* CSS added by WP Meta and Date Remover*/.entry-meta {display:none !important;}
+	.home .entry-meta { display: none; }
+	.entry-footer {display:none !important;}
+	.home .entry-footer { display: none; }</style><link rel="pingback" href="https://roboindia.com/tutorials/xmlrpc.php"><meta name="google-site-verification" content="mc1Kjg71hqTPwu8MuqpWOwGPy9XuokiuzVDl8NTlc5E"><script async="" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(2).txt"></script><script>(adsbygoogle = window.adsbygoogle || []).push({"google_ad_client":"ca-pub-8438129235669166","enable_page_level_ads":true,"tag_partner":"site_kit"});</script><link rel="icon" href="https://roboindia.com/tutorials/wp-content/uploads/2019/05/robo_india_site_icon.ico" sizes="32x32">
+<link rel="icon" href="https://roboindia.com/tutorials/wp-content/uploads/2019/05/robo_india_site_icon.ico" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://roboindia.com/tutorials/wp-content/uploads/2019/05/robo_india_site_icon.ico">
+<meta name="msapplication-TileImage" content="https://roboindia.com/tutorials/wp-content/uploads/2019/05/robo_india_site_icon.ico">
+<meta http-equiv="origin-trial" content="A+cA2PUOfIOKAdSDJOW5CP9ZlxONy1yu+hqAq72zUtKw4rLdihqRp6Nui/jUyCyegr+BUtH+C+Elv0ufn05yBQEAAACFeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A+zsdH3aNZT/bkjT8U/o5ACzyaeNYzTvtoVmwf/KOilfv39pxY2AIsOwhQJv+YnXp98i3TqrQibIVtMWs5UHjgoAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AxceVEhIegcDEHqLXFQ2+vPKqzCppoJYsRCZ/BdfVnbM/sUUF2BXV8lwNosyYjvoxnTh2FC8cOlAnA5uULr/zAUAAACLeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjY5NzY2Mzk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><link rel="preload" href="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(3).txt" as="script"><script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(3).txt"></script><link rel="preload" href="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(4).txt" as="script"><script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/f(4).txt"></script></head>
+
+<body class="post-template-default single single-post postid-1405 single-format-standard wp-custom-logo sidebar-content main-layout-sidebar-content sidebar_vertical_border site-full-width menu_sidebar_slide_left not-touch-screen">
+<div id="page" class="site box-shadow">
+	<a class="skip-link screen-reader-text" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#site-content">Skip to content</a>
+	<a class="close is-size-medium  close-panel close-sidebar-panel" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#">
+        <span class="hamburger hamburger--squeeze is-active">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"><span class="screen-reader-text">Menu</span></span>
+            </span>
+        </span>
+        <span class="screen-reader-text">Close</span>
+        </a><header id="masthead" class="site-header header-v2"><div id="masthead-inner" class="site-header-inner">							<div class="header-top header--row layout-full-contained" id="cb-row--header-top" data-row-id="top" data-show-on="desktop">
+								<div class="header--row-inner header-top-inner dark-mode">
+									<div class="customify-container">
+										<div class="customify-grid  cb-row--desktop hide-on-mobile hide-on-tablet customify-grid-middle"><div class="row-v2 row-v2-top no-center"><div class="col-v2 col-v2-left"><div class="item--inner builder-item--html" data-section="header_html" data-item-id="html"><div class="builder-header-html-item item--html"><p>Robo India – Learning Portal</p>
+</div></div></div><div class="col-v2 col-v2-right"><div class="item--inner builder-item--social-icons" data-section="header_social_icons" data-item-id="social-icons"><ul class="header-social-icons customify-builder-social-icons color-default"><li><a class="social-icon-facebook shape-circle" rel="nofollow" target="_blank" href="https://www.facebook.com/RoboIndia1/"><i class="icon fa fa-facebook" title="Facebook"></i></a></li><li><a class="social-icon-youtube-play shape-circle" rel="nofollow" target="_blank" href="http://www.youtube.com/c/ROBOINDIAAjmer"><i class="icon fa fa-youtube-play" title="Youtube"></i></a></li><li><a class="social-icon-instagram shape-circle" rel="nofollow" target="_blank" href="https://www.instagram.com/robo_india/"><i class="icon fa fa-instagram" title="Instagram"></i></a></li></ul></div></div></div></div>									</div>
+								</div>
+							</div>
+														<div class="header-main header--row layout-full-contained" id="cb-row--header-main" data-row-id="main" data-show-on="desktop mobile">
+								<div class="header--row-inner header-main-inner light-mode">
+									<div class="customify-container">
+										<div class="customify-grid  cb-row--desktop hide-on-mobile hide-on-tablet customify-grid-middle"><div class="row-v2 row-v2-main no-center"><div class="col-v2 col-v2-left"><div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">		<div class="site-branding logo-top">
+						<a href="https://roboindia.com/tutorials/" class="logo-link" rel="home" itemprop="url">
+				<img class="site-img-logo" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/cropped-robo-india-250x250-1.jpg" alt="Robo India || Tutorials || Learn Arduino || Robotics">
+							</a>
+					</div><!-- .site-branding -->
+		</div><div class="item--inner builder-item--primary-menu has_menu" data-section="header_menu_primary" data-item-id="primary-menu"><nav id="site-navigation-main-desktop" class="site-navigation primary-menu primary-menu-main nav-menu-desktop primary-menu-desktop style-plain"></nav></div></div><div class="col-v2 col-v2-right"><div class="item--inner builder-item--search_box" data-section="search_box" data-item-id="search_box"><div class="header-search_box-item item--search_box">		<form role="search" class="header-search-form " action="https://roboindia.com/tutorials/">
+			<div class="search-form-fields">
+				<span class="screen-reader-text">Search for:</span>
+				
+				<input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
+
+							</div>
+			<button type="submit" class="search-submit">
+				<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+					<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+				</svg>
+			</button>
+		</form>
+		</div></div><div class="item--inner builder-item--nav-icon" data-section="header_menu_icon" data-item-id="nav-icon">		<a class="menu-mobile-toggle item-button is-size-desktop-medium is-size-tablet-medium is-size-mobile-medium">
+			<span class="hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</span>
+			<span class="nav-icon--label hide-on-tablet hide-on-mobile">Menu</span></a>
+		</div><div class="item--inner builder-item--button" data-section="header_button" data-item-id="button"><a href="https://roboindia.com/store/" class="item--button customify-btn customify-builder-btn is-icon-before"><i class="fa fa-shopping-cart"></i> SHOP</a></div></div></div></div><div class="cb-row--mobile hide-on-desktop customify-grid customify-grid-middle"><div class="row-v2 row-v2-main no-center"><div class="col-v2 col-v2-left"><div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">		<div class="site-branding logo-top">
+						<a href="https://roboindia.com/tutorials/" class="logo-link" rel="home" itemprop="url">
+				<img class="site-img-logo" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/cropped-robo-india-250x250-1.jpg" alt="Robo India || Tutorials || Learn Arduino || Robotics">
+							</a>
+					</div><!-- .site-branding -->
+		</div></div><div class="col-v2 col-v2-right"><div class="item--inner builder-item--search_icon" data-section="search_icon" data-item-id="search_icon"><div class="header-search_icon-item item--search_icon js-added search-right">		<a class="search-icon" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#">
+			<span class="ic-search">
+				<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+					<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+				</svg>
+			</span>
+			<span class="ic-close">
+				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" fill="currentColor" style="enable-background:new 0 0 612 612;" xml:space="preserve"><g><g id="cross"><g><polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011 "></polygon></g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+			</span>
+			<span class="arrow-down"></span>
+		</a>
+		<div class="header-search-modal-wrapper">
+			<form role="search" class="header-search-modal header-search-form" action="https://roboindia.com/tutorials/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
+				</label>
+				<button type="submit" class="search-submit">
+					<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+						<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+					</svg>
+				</button>
+			</form>
+		</div>
+		</div></div><div class="item--inner builder-item--nav-icon" data-section="header_menu_icon" data-item-id="nav-icon">		<a class="menu-mobile-toggle item-button is-size-desktop-medium is-size-tablet-medium is-size-mobile-medium">
+			<span class="hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</span>
+			<span class="nav-icon--label hide-on-tablet hide-on-mobile">Menu</span></a>
+		</div></div></div></div>									</div>
+								</div>
+							</div>
+														<div class="header-bottom header--row layout-full-contained" id="cb-row--header-bottom" data-row-id="bottom" data-show-on="desktop">
+								<div class="header--row-inner header-bottom-inner light-mode">
+									<div class="customify-container">
+										<div class="customify-grid  cb-row--desktop hide-on-mobile hide-on-tablet customify-grid-middle"><div class="row-v2 row-v2-bottom no-center no-right"><div class="col-v2 col-v2-left"><div class="item--inner builder-item--search_icon" data-section="search_icon" data-item-id="search_icon"><div class="header-search_icon-item item--search_icon js-added search-right">		<a class="search-icon" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#">
+			<span class="ic-search">
+				<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+					<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+				</svg>
+			</span>
+			<span class="ic-close">
+				<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="612px" height="612px" viewBox="0 0 612 612" fill="currentColor" style="enable-background:new 0 0 612 612;" xml:space="preserve"><g><g id="cross"><g><polygon points="612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011 "></polygon></g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+			</span>
+			<span class="arrow-down"></span>
+		</a>
+		<div class="header-search-modal-wrapper">
+			<form role="search" class="header-search-modal header-search-form" action="https://roboindia.com/tutorials/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
+				</label>
+				<button type="submit" class="search-submit">
+					<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+						<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+					</svg>
+				</button>
+			</form>
+		</div>
+		</div></div></div></div></div>									</div>
+								</div>
+							</div>
+							</div></header>	<div id="site-content" class="site-content">
+		<div class="customify-container">
+			<div class="customify-grid">
+				<main id="main" class="content-area customify-col-9_sm-12-last_sm-first">
+						<div class="content-inner">
+				<article id="post-1405" class="entry entry-single post-1405 post type-post status-publish format-standard hentry category-arduino category-sensor-tutorials">
+			<h1 class="entry-title entry--item h2">Arduino – Digital and Analog Infrared Sensor</h1>			<div class="entry-meta entry--item text-uppercase text-xsmall link-meta">
+				<span class="meta-item byline"> <span class="author vcard"><a class="url fn n" href="https://roboindia.com/tutorials/author/robo-india-maker-01/"><i class="fa fa-user-circle-o"></i> </a></span></span><span class="sep"></span><span class="meta-item posted-on"><a href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/" rel="bookmark"><i class="fa fa-clock-o" aria-hidden="true"></i> <time class="entry-date published" datetime=""></time></a></span><span class="sep"></span><span class="meta-item meta-cat"><a href="https://roboindia.com/tutorials/category/arduino/" rel="tag"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Arduino</a></span><span class="sep"></span><span class="meta-item comments-link"><a href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#comments"><i class="fa fa-comments-o"></i> 1 Comment</a></span>			</div><!-- .entry-meta -->
+					<div class="entry-content entry--item">
+			
+<h3><em>This tutorial of Robo India explain the working concept of Infrared(IR) sensor as Digital and Analog sensor.&nbsp;</em></h3>
+
+
+
+<h4> <strong>1. Introduction:</strong> </h4>
+
+
+
+<p>This is a multipurpose infrared sensor which can be used for color detection.The sensor provides a digital as well as analog output. An on board LED is used to indicate the presence of an object. This digital output can be directly connected to an Arduino, Raspberry Pi or any other microcontroller to read the sensor output.</p>
+
+
+
+<p>IR sensors are highly susceptible to ambient light and the IR sensor on this sensor is suitably covered to reduce effect of ambient light on the sensor. The on board potentiometer should be used to calibrate the sensor.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/1-38-1024x473.jpg" alt="" class="wp-image-1407" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/1-38-1024x473.jpg 1024w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/1-38-300x139.jpg 300w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/1-38-768x355.jpg 768w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/1-38.jpg 1500w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>An infrared light emitting diode (IR LED) emits light of Infrared range 700 nanometers (nm) to 1 mm. This light is not visible by naked eyes but can be seen by a camera (that is why these are also used in night vision cameras).</p>
+
+
+
+<p>A photo diode gives response in term of change in resistance when light falls on it. That change is measured in terms of voltage.</p>
+
+
+
+<p>An IR LED and a Photo diode are used in a combination for proximity and color detection. An IR LED (transmitter) emits IR light, that light gets reflected by the object, the reflected light is received by an IR receiver (Photo Diode). Amount of reflection and reception varies with the distance. . This difference causes to change in input voltage through IR input. This variation in input voltage is used for proximity detection.<br></p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/2-25-1024x722.jpg" alt="" class="wp-image-1408" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/2-25-1024x722.jpg 1024w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/2-25-300x212.jpg 300w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/2-25-768x542.jpg 768w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/2-25.jpg 1304w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p>
+
+For color detection application: The amount of reflected light depends upon the color of surface from which it is reflected. The reflection is different for different colored surfaces. This makes it a color detector.
+
+</p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/3-10-1024x598.jpg" alt="" class="wp-image-1409" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/3-10-1024x598.jpg 1024w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/3-10-300x175.jpg 300w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/3-10-768x448.jpg 768w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/3-10.jpg 1412w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<h4> <strong>2 Hardware Interfacing</strong> </h4>
+
+
+
+<p>IR Sensor have four pins:</p>
+
+
+
+<p>1. VCC +5V</p>
+
+
+
+<p>2. GND</p>
+
+
+
+<p>3. D connects with any digital pin of Arduino when IR pair use as Digital Sensor.</p>
+
+
+
+<p>4. A connects with analog input pin of Arduino when IR pair use as Analog Sensor</p>
+
+
+
+<h4> <strong>3. Building Circuit</strong> </h4>
+
+
+
+<div class="table-wrapper"><table class="wp-block-table"><tbody><tr><td>S. No.  </td><td>Item Required for making this project                          </td><td>Buy on Amazon           </td><td>Buy on Robo India</td></tr><tr><td>1.</td><td>Arduino UNO</td><td><em><a href="https://amzn.to/3jbynkp">click here</a></em></td><td><em><a href="https://roboindia.com/store/low-cost-arduino-uno-r3" target="_blank" rel="noreferrer noopener" aria-label="click here (opens in a new tab)">click here</a></em></td></tr><tr><td>2.</td><td>IR Sensor</td><td><em><a href="https://amzn.to/2QmuRYn" target="_blank" rel="noreferrer noopener" aria-label="click here (opens in a new tab)">click here</a></em></td><td><em><a href="https://roboindia.com/store/Digitial-and-analogue-IR-Sensor-pair" target="_blank" rel="noreferrer noopener" aria-label="click here (opens in a new tab)">click here</a></em></td></tr><tr><td>3.</td><td>Jumper Wire</td><td><em><a href="https://amzn.to/31rKpQT">click here</a></em></td><td><em><a href="https://roboindia.com/store/jumper-wire-set-10-each">click here</a></em></td></tr></tbody></table></div>
+
+
+
+<p>Digital Interfacing:</p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/4-24-1024x495.jpg" alt="" class="wp-image-1411" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/4-24-1024x495.jpg 1024w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/4-24-300x145.jpg 300w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/4-24-768x371.jpg 768w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/4-24.jpg 1500w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<p><strong>Analog Interfacing:</strong></p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/5-24-1024x451.jpg" alt="" class="wp-image-1413" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/5-24-1024x451.jpg 1024w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/5-24-300x132.jpg 300w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/5-24-768x338.jpg 768w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/5-24.jpg 1500w" sizes="(max-width: 1024px) 100vw, 1024px"></figure>
+
+
+
+<h4> <strong>3. Programming:</strong> </h4>
+
+
+
+<p><em><a href="https://roboindia.com/tutorial-content/arduino_code/ir_digital_sensor.zip" target="_blank" rel="noreferrer noopener" aria-label=" (opens in a new tab)">You may download this arduino sketch (code) for digital output from here.</a></em></p>
+
+
+
+<pre><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">ProxSensor</font><font color="#434f54">=</font><font color="#000000">2</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">inputVal</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> 
+<font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">// Pin 13 has an LED connected on most Arduino boards: &nbsp;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#434f54">,</font><font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">//Pin 2 is connected to the output of proximity sensor</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> 
+<font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#000000">)</font><font color="#434f54">==</font><font color="#00979c">HIGH</font><font color="#000000">)</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Check the sensor output</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">// set the LED on</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">// set the LED off</font>
+ &nbsp;<font color="#000000">}</font>
+<font color="#000000">inputVal</font> <font color="#434f54">=</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#000000">)</font><font color="#000000">;</font>
+<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">inputVal</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">// wait for a second</font>
+<font color="#000000">}</font>
+
+
+
+
+</pre>
+
+
+
+<p><em><a href="https://roboindia.com/tutorial-content/arduino_code/ir_analog_sensor.zip" target="_blank" rel="noreferrer noopener" aria-label=" (opens in a new tab)">You may download this arduino sketch (code) for analog output from here.</a></em></p>
+
+
+
+<pre><font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">ProxSensor</font><font color="#434f54">=</font><font color="#000000">A0</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">inputVal</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> 
+<font color="#000000">{</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">// Pin 13 has an LED connected on most Arduino boards: &nbsp;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#434f54">,</font><font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">//Pin 2 is connected to the output of proximity sensor</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> 
+<font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#000000">)</font><font color="#434f54">==</font><font color="#00979c">HIGH</font><font color="#000000">)</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">//Check the sensor output</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">// set the LED on</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">// set the LED off</font>
+ &nbsp;<font color="#000000">}</font>
+<font color="#000000">inputVal</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">ProxSensor</font><font color="#000000">)</font><font color="#000000">;</font>
+<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">inputVal</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">// wait for a second</font>
+<font color="#000000">}</font>
+
+
+
+
+</pre>
+
+
+
+<h4> <strong>4. Output</strong> </h4>
+
+
+
+<p>Place the object in front of IR proximity sensor and observe the change in LED connected to board. When you remove object you will see it gets turned off.</p>
+
+
+
+<p>The sensor outputs a logic 1 (+5V) at the digital output when an object is placed in front of the sensor and a logic 0 (0V), when there is no object in front of the sensor.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/6-13.png" alt="" class="wp-image-1414" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/6-13.png 514w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/6-13-300x247.png 300w" sizes="(max-width: 514px) 100vw, 514px"></figure>
+
+
+
+<p>Do the same for Analog output. Arduino scales an analog signal in a range of 0-1023.</p>
+
+
+
+<figure class="wp-block-image"><img src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/7-13.png" alt="" class="wp-image-1415" srcset="https://roboindia.com/tutorials/wp-content/uploads/2019/05/7-13.png 511w, https://roboindia.com/tutorials/wp-content/uploads/2019/05/7-13-300x243.png 300w" sizes="(max-width: 511px) 100vw, 511px"></figure>
+
+
+
+<p><em>If you have any query please write us at&nbsp;<strong><a href="mailto:info@roboindia.com">support@roboindia.com</a></strong></em></p>
+
+
+
+<p><strong>Thanks and Regards</strong><br><strong>Content Development Team&nbsp;</strong><br><strong>Robo India</strong><br><strong><em><a href="https://roboindia.com/" target="_blank" rel="noreferrer noopener">https://roboindia.com</a></em></strong></p>
+
+
+
+<p><br></p>
+		</div><!-- .entry-content -->
+		<div class="entry-post-navigation entry--item">
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://roboindia.com/tutorials/arduino-analog-input-output-led-serial-2/" rel="prev"><span class="meta-nav text-uppercase text-xsmall color-meta" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title text-large">Arduino Analog input and output on LED &amp; Serial.</span></a></div><div class="nav-next"><a href="https://roboindia.com/tutorials/arduino-5v-peizo-buzzer-2/" rel="next"><span class="meta-nav text-uppercase text-xsmall color-meta" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title text-large">Arduino – Peizo Buzzer</span></a></div></div>
+	</nav></div><div class="entry-comment-form entry--item">
+<div id="comments" class="comments-area">
+			<h4 class="comments-title">
+			1 Comment		</h4><!-- .comments-title -->
+
+		
+		<ol class="comment-list">
+						<li class="comment even thread-even depth-1" id="li-comment-185">
+				<article id="comment-185" class="comment clearfix">
+					<div class="comment-image">
+						<img alt="" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/5edc88ff4c414dc43ea9f9ecc4b534e0.png" srcset="https://secure.gravatar.com/avatar/5edc88ff4c414dc43ea9f9ecc4b534e0?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60">					</div>
+					<div class="comment-reply">
+
+					</div>
+					<div class="comment-wrap">
+						<header class="comment-header">
+							<cite class="comment-author fn vcard">Oishy Saha </cite>							<div class="comment-meta text-uppercase text-xsmall link-meta">
+								<a href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#comment-185">
+									<time datetime="2019-08-22T10:04:40+00:00">
+										August 22, 2019 at 10:04 am									</time>
+								</a>
+																<div class="comment-reply pull-right">
+									<a rel="nofollow" class="comment-reply-login" href="https://roboindia.com/tutorials/wp-login.php?redirect_to=https%3A%2F%2Froboindia.com%2Ftutorials%2Fdigital-analog-ir-pair-arduino%2F">Log in to Reply</a>								</div>
+							</div>
+
+						</header><!-- .comment-meta -->
+
+						
+						<div class="comment-content entry-content">
+							<p>In serial monitor only value 0 is displayed,<br>
+But the led glows when it senses any object.<br>
+But in that case,the serial monitor doesn’t respond</p>
+						</div><!-- .comment-content -->
+
+					</div><!--/comment-wrapper-->
+
+				</article><!-- #comment-## -->
+				</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://roboindia.com/tutorials/digital-analog-ir-pair-arduino/#respond" style="display:none;">Cancel reply</a></small></h3><p class="must-log-in">You must be <a href="https://roboindia.com/tutorials/wp-login.php?redirect_to=https%3A%2F%2Froboindia.com%2Ftutorials%2Fdigital-analog-ir-pair-arduino%2F">logged in</a> to post a comment.</p>	</div><!-- #respond -->
+	
+</div><!-- #comments -->
+</div>		</article>
+			</div><!-- #.content-inner -->
+              			</main><!-- #main -->
+			<aside id="sidebar-primary" class="sidebar-primary customify-col-3_sm-12">
+	<div class="sidebar-primary-inner sidebar-inner widget-area">
+		<section id="search-2" class="widget widget_search">
+		<form role="search" class="sidebar-search-form" action="https://roboindia.com/tutorials/">
+            <label>
+                <span class="screen-reader-text">Search for:</span>
+                <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+            </label>
+            <button type="submit" class="search-submit">
+                <svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+                    <path id="svg-search" fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+                </svg>
+            </button>
+        </form></section><section id="categories-2" class="widget widget_categories"><h4 class="widget-title">Categories</h4>		<ul>
+				<li class="cat-item cat-item-2"><a href="https://roboindia.com/tutorials/category/android-app-development-mit-app-inventor/" title="This is series of tutorials for developing Android applications using a drag and drop tool MIT app inventor.">Android on MIT App Inventor</a><span class="count">5</span>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://roboindia.com/tutorials/category/arduino/">Arduino</a><span class="count">168</span>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://roboindia.com/tutorials/category/arduino-builders-kit/" title="This is a series of tutorial especially designed tutorials for Arduino Builders kit. These tutorials perfectly work with other arduino based boards too.">Arduino Builders Kit</a><span class="count">18</span>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://roboindia.com/tutorials/category/arduino-nano/" title="Arduino Nano is an Arduino based development board. It is a compact size Arduino Board. Which is directly mountable on breadboard.
+
+It comes with Atmega328 microcontorller. This is a series of tutorials by Robo India Robotics Private Limited on Arduino">Arduino Nano</a><span class="count">5</span>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://roboindia.com/tutorials/category/arduino-nano-starter-kit-all-tutorials/" title="Tutorials to learn arduino  platform on Arduino nano board. This is a series of tutorials for the arduino nano starter kit product offered by Robo India under Roinco brand.">Arduino Nano Starter Kit</a><span class="count">5</span>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://roboindia.com/tutorials/category/arduino-school-learning-program/" title="Arduino school learning program for school students who are new to Arduino.">Arduino School Learning Program</a><span class="count">2</span>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://roboindia.com/tutorials/category/arduino-multipurpose-kit/" title="Roinco Arduino UNO Multipurpose starter kit is designed for beginners interested in learning Arduino from, LED Blinking to Autonomous Robot.
+We have also included the Free Arduino Starter Guide, which include detailed tutorial for basic and intermediate">Arduino UNO Multipurpose Kit</a><span class="count">1</span>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://roboindia.com/tutorials/category/assembly-guides/" title="Assemsbly,robotics drill machine ,pcb ,drilling stand,">Assembly Guides</a><span class="count">7</span>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://roboindia.com/tutorials/category/basics-of-electronics-kit/" title="This is a series of tutorials designs for Basics of Electronics Kit of Robo India.">Basics of Electronics</a><span class="count">9</span>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://roboindia.com/tutorials/category/bluetooth-tutorials/" title="This tutorial explains how to make Bluetooth Communication App using MIT App Inventor.">Bluetooth</a><span class="count">10</span>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://roboindia.com/tutorials/category/blynk/" title="This is a series of tutorial on Internet of things and blynk.">Blynk</a><span class="count">9</span>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://roboindia.com/tutorials/category/diy-kit/" title="Robo India offers a wide range of DIY Kits, These educational kits are very helpful to build concept in the domain of Robotics and Automation. All of these kits are provided with step by step detailed tutorials.">DIY Kit</a><span class="count">41</span>
+</li>
+	<li class="cat-item cat-item-26"><a href="https://roboindia.com/tutorials/category/esp-01-wifi-module/" title="Series of tutorials for wifi module ESP8266 - ESP-01">ESP-01 (ESP8266)</a><span class="count">6</span>
+</li>
+	<li class="cat-item cat-item-24"><a href="https://roboindia.com/tutorials/category/esp32-nodemcu/" title="This is series of tutorials on ESP32. ESP32 is a development board with in built wifi and Bluetooth capabilities.">ESP32 – Wifi, Bluetooth Board</a><span class="count">3</span>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://roboindia.com/tutorials/category/esp-8266-builders-kit/" title="This is a series of tutorial for wifi module ESP8266 on the NODE MCU Amica development board. Amica is a wifi development board based on ESP8266 wifi module. This kit is ideal for wifi based development on LUA and node MCU. Ideal to start with internet of Things">ESP8266 Builders Kit</a><span class="count">14</span>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://roboindia.com/tutorials/category/esp-8266-wifi-module/" title="Tutorial on ESP8266 Wifi module using Arduino ide programming,">ESP8266 Wifi Module</a><span class="count">20</span>
+</li>
+	<li class="cat-item cat-item-23"><a href="https://roboindia.com/tutorials/category/finger-print-sensor-category/" title="This is a series of tutorial to explain finger print sensors. This category has got many tutorial that can help to use finger print scanner in your project.">Finger Print Sensor</a><span class="count">2</span>
+</li>
+	<li class="cat-item cat-item-25"><a href="https://roboindia.com/tutorials/category/motors-drivers/" title="Series of tutorials on controlling motors and using motor drives to control motors.">Motors &amp; Drivers</a><span class="count">13</span>
+</li>
+	<li class="cat-item cat-item-19"><a href="https://roboindia.com/tutorials/category/nodemcu-arduino/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU on Arduino IDE</a><span class="count">38</span>
+</li>
+	<li class="cat-item cat-item-20"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-basic/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Basic</a><span class="count">13</span>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-neo/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Neo</a><span class="count">13</span>
+</li>
+	<li class="cat-item cat-item-22"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-professional/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Professional</a><span class="count">14</span>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://roboindia.com/tutorials/category/raspberry-pi/" title="The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in">Raspberry Pi</a><span class="count">10</span>
+</li>
+	<li class="cat-item cat-item-27"><a href="https://roboindia.com/tutorials/category/sensor-tutorials/" title="Series of tutorials on various sensors and their interfacing.">Sensors</a><span class="count">30</span>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://roboindia.com/tutorials/category/arduino-robotic-kit/" title="This is a series of tutorial for The Arduino Robotic Kit of Robo India.">The Arduino Robotic Kit</a><span class="count">7</span>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://roboindia.com/tutorials/category/uncategorized/">Uncategorized</a><span class="count">11</span>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://roboindia.com/tutorials/category/usbasp-programmer/" title="USBASP Programmer">USBASP Programmer</a><span class="count">2</span>
+</li>
+	<li class="cat-item cat-item-30"><a href="https://roboindia.com/tutorials/category/wireless/">Wireless</a><span class="count">1</span>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://roboindia.com/tutorials/category/zigbee-x-bee/" title="Series of tutorial on wireless communication using zigbee by Robo India.">Zigbee (X BEE)</a><span class="count">1</span>
+</li>
+		</ul>
+			</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h4 class="widget-title">Recent Tutorials</h4>		<ul>
+											<li>
+					<a href="https://roboindia.com/tutorials/rf-434-motor-driver-assembly-guide/">RF 434 Motor Driver Assembly Guide</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/single-channel-relay-motor-control-arduino/">Single-channel Relay Motor control – Arduino</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/how-to-install-esp8266-nodemcu-support-to-arduino-ide/">How to install ESP8266/NODEMCU support to Arduino IDE</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/digital-input-how-to-use-the-button-with-arduino/">Digital Input -How to use the button with Arduino.</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/arduino-analog-output-led-fade-in-and-fade-out/">Arduino: Analog Output, LED fade in and fade out.</a>
+									</li>
+					</ul>
+		</section>	</div>
+</aside><!-- #sidebar-primary -->
+		</div><!-- #.customify-grid -->
+	</div><!-- #.customify-container -->
+</div><!-- #content -->
+<footer class="site-footer" id="site-footer">							<div class="footer-main footer--row layout-full-contained" id="cb-row--footer-main" data-row-id="main" data-show-on="desktop">
+								<div class="footer--row-inner footer-main-inner dark-mode">
+									<div class="customify-container">
+										<div class="customify-grid  customify-grid-top"><div class="customify-col-3_md-3_sm-6_xs-12 builder-item builder-first--footer-1" data-push-left="_sm-0"><div class="item--inner builder-item--footer-1" data-section="sidebar-widgets-footer-1" data-item-id="footer-1"><div class="widget-area"><section id="categories-6" class="widget widget_categories"><h4 class="widget-title">Categories</h4>		<ul>
+				<li class="cat-item cat-item-2"><a href="https://roboindia.com/tutorials/category/android-app-development-mit-app-inventor/" title="This is series of tutorials for developing Android applications using a drag and drop tool MIT app inventor.">Android on MIT App Inventor</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://roboindia.com/tutorials/category/arduino/">Arduino</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="https://roboindia.com/tutorials/category/arduino-builders-kit/" title="This is a series of tutorial especially designed tutorials for Arduino Builders kit. These tutorials perfectly work with other arduino based boards too.">Arduino Builders Kit</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://roboindia.com/tutorials/category/arduino-nano/" title="Arduino Nano is an Arduino based development board. It is a compact size Arduino Board. Which is directly mountable on breadboard.
+
+It comes with Atmega328 microcontorller. This is a series of tutorials by Robo India Robotics Private Limited on Arduino">Arduino Nano</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://roboindia.com/tutorials/category/arduino-nano-starter-kit-all-tutorials/" title="Tutorials to learn arduino  platform on Arduino nano board. This is a series of tutorials for the arduino nano starter kit product offered by Robo India under Roinco brand.">Arduino Nano Starter Kit</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="https://roboindia.com/tutorials/category/arduino-school-learning-program/" title="Arduino school learning program for school students who are new to Arduino.">Arduino School Learning Program</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://roboindia.com/tutorials/category/arduino-multipurpose-kit/" title="Roinco Arduino UNO Multipurpose starter kit is designed for beginners interested in learning Arduino from, LED Blinking to Autonomous Robot.
+We have also included the Free Arduino Starter Guide, which include detailed tutorial for basic and intermediate">Arduino UNO Multipurpose Kit</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://roboindia.com/tutorials/category/assembly-guides/" title="Assemsbly,robotics drill machine ,pcb ,drilling stand,">Assembly Guides</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://roboindia.com/tutorials/category/basics-of-electronics-kit/" title="This is a series of tutorials designs for Basics of Electronics Kit of Robo India.">Basics of Electronics</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://roboindia.com/tutorials/category/bluetooth-tutorials/" title="This tutorial explains how to make Bluetooth Communication App using MIT App Inventor.">Bluetooth</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://roboindia.com/tutorials/category/blynk/" title="This is a series of tutorial on Internet of things and blynk.">Blynk</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://roboindia.com/tutorials/category/diy-kit/" title="Robo India offers a wide range of DIY Kits, These educational kits are very helpful to build concept in the domain of Robotics and Automation. All of these kits are provided with step by step detailed tutorials.">DIY Kit</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="https://roboindia.com/tutorials/category/esp-01-wifi-module/" title="Series of tutorials for wifi module ESP8266 - ESP-01">ESP-01 (ESP8266)</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="https://roboindia.com/tutorials/category/esp32-nodemcu/" title="This is series of tutorials on ESP32. ESP32 is a development board with in built wifi and Bluetooth capabilities.">ESP32 – Wifi, Bluetooth Board</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://roboindia.com/tutorials/category/esp-8266-builders-kit/" title="This is a series of tutorial for wifi module ESP8266 on the NODE MCU Amica development board. Amica is a wifi development board based on ESP8266 wifi module. This kit is ideal for wifi based development on LUA and node MCU. Ideal to start with internet of Things">ESP8266 Builders Kit</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://roboindia.com/tutorials/category/esp-8266-wifi-module/" title="Tutorial on ESP8266 Wifi module using Arduino ide programming,">ESP8266 Wifi Module</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="https://roboindia.com/tutorials/category/finger-print-sensor-category/" title="This is a series of tutorial to explain finger print sensors. This category has got many tutorial that can help to use finger print scanner in your project.">Finger Print Sensor</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="https://roboindia.com/tutorials/category/motors-drivers/" title="Series of tutorials on controlling motors and using motor drives to control motors.">Motors &amp; Drivers</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="https://roboindia.com/tutorials/category/nodemcu-arduino/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU on Arduino IDE</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-basic/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Basic</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-neo/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Neo</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="https://roboindia.com/tutorials/category/nodemcu-starter-kit-professional/" title="This is a series of tutorials of nodeMCU on Arduino IDE.">NodeMCU Starter Kit – Professional</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://roboindia.com/tutorials/category/raspberry-pi/" title="The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that enables people of all ages to explore computing, and to learn how to program in">Raspberry Pi</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="https://roboindia.com/tutorials/category/sensor-tutorials/" title="Series of tutorials on various sensors and their interfacing.">Sensors</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://roboindia.com/tutorials/category/arduino-robotic-kit/" title="This is a series of tutorial for The Arduino Robotic Kit of Robo India.">The Arduino Robotic Kit</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://roboindia.com/tutorials/category/uncategorized/">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://roboindia.com/tutorials/category/usbasp-programmer/" title="USBASP Programmer">USBASP Programmer</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="https://roboindia.com/tutorials/category/wireless/">Wireless</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://roboindia.com/tutorials/category/zigbee-x-bee/" title="Series of tutorial on wireless communication using zigbee by Robo India.">Zigbee (X BEE)</a>
+</li>
+		</ul>
+			</section></div></div></div><div class="customify-col-3_md-3_sm-6_xs-12 builder-item builder-first--footer-2" data-push-left="_sm-0"><div class="item--inner builder-item--footer-2" data-section="sidebar-widgets-footer-2" data-item-id="footer-2"><div class="widget-area">		<section id="recent-posts-4" class="widget widget_recent_entries">		<h4 class="widget-title">Recent Tutorials</h4>		<ul>
+											<li>
+					<a href="https://roboindia.com/tutorials/rf-434-motor-driver-assembly-guide/">RF 434 Motor Driver Assembly Guide</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/single-channel-relay-motor-control-arduino/">Single-channel Relay Motor control – Arduino</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/how-to-install-esp8266-nodemcu-support-to-arduino-ide/">How to install ESP8266/NODEMCU support to Arduino IDE</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/digital-input-how-to-use-the-button-with-arduino/">Digital Input -How to use the button with Arduino.</a>
+									</li>
+											<li>
+					<a href="https://roboindia.com/tutorials/arduino-analog-output-led-fade-in-and-fade-out/">Arduino: Analog Output, LED fade in and fade out.</a>
+									</li>
+					</ul>
+		</section></div></div></div><div class="customify-col-6_md-6_sm-6_xs-12 builder-item builder-first--footer-3" data-push-left="_sm-0"><div class="item--inner builder-item--footer-3" data-section="sidebar-widgets-footer-3" data-item-id="footer-3"><div class="widget-area"><section id="text-7" class="widget widget_text"><h4 class="widget-title">Contact us:</h4>			<div class="textwidget"><p>Technical enquiry:&nbsp;&nbsp; support@roboindia.com</p>
+<p>Business enquiry:&nbsp;&nbsp;&nbsp; info@roboindia.com</p>
+</div>
+		</section></div></div></div></div>									</div>
+								</div>
+							</div>
+														<div class="footer-bottom footer--row layout-full-contained" id="cb-row--footer-bottom" data-row-id="bottom" data-show-on="desktop">
+								<div class="footer--row-inner footer-bottom-inner dark-mode">
+									<div class="customify-container">
+										<div class="customify-grid  customify-grid-top"><div class="customify-col-12_md-12_sm-12_xs-12 builder-item builder-first--footer_copyright" data-push-left="_sm-0"><div class="item--inner builder-item--footer_copyright" data-section="footer_copyright" data-item-id="footer_copyright"><div class="builder-footer-copyright-item footer-copyright"><p>Copyright © 2022 </p>
+</div></div></div></div>									</div>
+								</div>
+							</div>
+							</footer></div><!-- #page -->
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var Customify_JS = {"is_rtl":"","css_media_queries":{"all":"%s","desktop":"%s","tablet":"@media screen and (max-width: 1024px) { %s }","mobile":"@media screen and (max-width: 568px) { %s }"},"sidebar_menu_no_duplicator":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/theme.min.js.download"></script><div id="header-menu-sidebar" class="header-menu-sidebar menu-sidebar-panel dark-mode"><div id="header-menu-sidebar-bg" class="header-menu-sidebar-bg"><div id="header-menu-sidebar-inner" class="header-menu-sidebar-inner"><div class="builder-item-sidebar mobile-item--html"><div class="item--inner" data-item-id="html" data-section="header_html" style="transition-delay: 0.2s;"><div class="builder-header-html-item item--html"><p>Robo India – Learning Portal</p>
+</div></div></div><div class="builder-item-sidebar mobile-item--search_box"><div class="item--inner" data-item-id="search_box" data-section="search_box" style="transition-delay: 0.4s;"><div class="header-search_box-item item--search_box">		<form role="search" class="header-search-form " action="https://roboindia.com/tutorials/">
+			<div class="search-form-fields">
+				<span class="screen-reader-text">Search for:</span>
+				
+				<input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
+
+							</div>
+			<button type="submit" class="search-submit">
+				<svg aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21">
+					<path fill="currentColor" fill-rule="evenodd" d="M12.514 14.906a8.264 8.264 0 0 1-4.322 1.21C3.668 16.116 0 12.513 0 8.07 0 3.626 3.668.023 8.192.023c4.525 0 8.193 3.603 8.193 8.047 0 2.033-.769 3.89-2.035 5.307l4.999 5.552-1.775 1.597-5.06-5.62zm-4.322-.843c3.37 0 6.102-2.684 6.102-5.993 0-3.31-2.732-5.994-6.102-5.994S2.09 4.76 2.09 8.07c0 3.31 2.732 5.993 6.102 5.993z"></path>
+				</svg>
+			</button>
+		</form>
+		</div></div></div><div class="builder-item-sidebar mobile-item--primary-menu mobile-item--menu "><div class="item--inner" data-item-id="primary-menu" data-section="header_menu_primary" style="transition-delay: 0.6s;"><nav id="site-navigation-sidebar-mobile" class="site-navigation primary-menu primary-menu-sidebar nav-menu-mobile primary-menu-mobile style-plain"></nav></div></div><div class="builder-item-sidebar mobile-item--social-icons"><div class="item--inner" data-item-id="social-icons" data-section="header_social_icons" style="transition-delay: 0.8s;"><ul class="header-social-icons customify-builder-social-icons color-default"><li><a class="social-icon-facebook shape-circle" rel="nofollow" target="_blank" href="https://www.facebook.com/RoboIndia1/"><i class="icon fa fa-facebook" title="Facebook"></i></a></li><li><a class="social-icon-youtube-play shape-circle" rel="nofollow" target="_blank" href="http://www.youtube.com/c/ROBOINDIAAjmer"><i class="icon fa fa-youtube-play" title="Youtube"></i></a></li><li><a class="social-icon-instagram shape-circle" rel="nofollow" target="_blank" href="https://www.instagram.com/robo_india/"><i class="icon fa fa-instagram" title="Instagram"></i></a></li></ul></div></div><div class="builder-item-sidebar mobile-item--button"><div class="item--inner" data-item-id="button" data-section="header_button" style="transition-delay: 1s;"><a href="https://roboindia.com/store/" class="item--button customify-btn customify-builder-btn is-icon-before"><i class="fa fa-shopping-cart"></i> SHOP</a></div></div></div></div></div>
+<script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/wp-embed.min.js.download"></script>
+
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/ads.html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins><iframe src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./Arduino - Digital and Analog Infrared Sensor - Robo India __ Tutorials __ Learn Arduino __ Robotics_files/zrt_lookup.html" style="display: none;"></iframe></html>
