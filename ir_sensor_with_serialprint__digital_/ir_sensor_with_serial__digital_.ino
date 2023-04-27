@@ -42,6 +42,7 @@ C=digitalRead(4);
 int left = digitalRead(sensor_l);//reading Sensor signal pin
 int centre = digitalRead(sensor_c);
 int right = digitalRead(sensor_r);
+  
   {if(left == 1){
    Serial.println("left BLACK");
    delay(200);  
