@@ -25,7 +25,7 @@ A=digitalRead(3);
 B=digitalRead(2);
 C=digitalRead(4);
 
-    digitalWrite(motor1pin1, HIGH);
+  digitalWrite(motor1pin1, HIGH);
   digitalWrite(motor1pin2, LOW);
 
   digitalWrite(motor2pin1, HIGH);
