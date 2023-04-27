@@ -16,6 +16,7 @@ void setup() {
   pinMode(motor1pin2, OUTPUT);
   pinMode(motor2pin1, OUTPUT);
   pinMode(motor2pin2, OUTPUT);
+  
   Serial.begin(9600);
 }
 
